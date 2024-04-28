@@ -241,11 +241,31 @@ int main() {
             {
               char nomeEditar[100];
               printf("Digite o nome do artista a ser editado: ");
-              scanf("%s", nomeEditar);
-              editarArtista(artistas, numArtistas, nomeEditar);
+              scanf(" %[^\n]", nomeEditar);
+              int i;
+              for (i = 0; i < numArtistas; i++) {
+                  if (strcmp(artistas[i].nome, nomeEditar) == 0) {
+                      printf("Digite o novo nome do artista: ");
+                      scanf(" %[^\n]", artistas[i].nome);
+                      printf("Digite o novo gênero musical: ");
+                      scanf(" %[^\n]", artistas[i].genero);
+                      printf("Digite o novo local de criação/nascimento: ");
+                      scanf(" %[^\n]", artistas[i].local);
+                      printf("Digite os novos álbuns (digite '==========' para encerrar):\n");
+                      artistas[i].numAlbums = 0;
+                      while (1) {
+                          scanf(" %[^\n]", artistas[i].albums[artistas[i].numAlbums]);
+                          if (strcmp(artistas[i].albums[artistas[i].numAlbums], "==========") == 0) {
+                              break;
+                          }
+                          artistas[i].numAlbums++;
+                      }
+                      break;
+                  }
+              }
               printf("Artista editado com sucesso!\n");
               break;
-            }
+          }
           case 4:
             {
               char nomeBuscarBinario[100];  
