@@ -163,9 +163,6 @@ int buscarArtistaBinario(Artista artistas[], int numArtistas, char nome[]) {
     return -1; // Retorna -1 se o artista não foi encontrado
 }
 
-Claro, aqui está o seu código comentado:
-
-```c
 // Função para exibir um artista
 void exibirArtista(Artista artista) {
     // Imprime as informações do artista
